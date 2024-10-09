@@ -17,8 +17,8 @@ Transmission power in dB is converted to linear scale using the following equati
 $$P_{trans} = 10^{(P_{dB} / 10)}$$
 
 Where:
-- $$\( P_{\text{trans}} \)$$: Transmission power in Watts (linear scale).
-- \( P_{\text{dB}} \): Transmission power in decibels (dB).
+- $$P_{\text{trans}}$$: Transmission power in Watts (linear scale).
+- $$P_{\text{dB}}$$: Transmission power in decibels (dB).
 
 ### 2. Channel Coefficients (Rayleigh Fading)
 
