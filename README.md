@@ -1,5 +1,7 @@
 # PHYSICAL Layer: Amplify And Forward Relaying Technique
 
+[My Website](https://www.mywebsite.com)
+
 This repository contains the implementation of the **Amplify-and-Forward (AF) Relaying** scheme simulation, which models a cooperative communication system. The simulation incorporates Rayleigh fading, path loss, shadowing, relay selection, maximal ratio combining (MRC), and computes key performance metrics such as Bit Error Rate (BER), Signal-to-Noise Ratio (SNR), and Spectral Efficiency.
 
 ## Overview
