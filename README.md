@@ -7,6 +7,8 @@ This repository contains the implementation of the **Amplify-and-Forward (AF) Re
 
 ## Overview
 
+P_text 
+
 The **Amplify-and-Forward (AF) Relaying** scheme enhances communication reliability and coverage in wireless networks. A source node transmits data to a destination node, with the help of one or more relays. These relays amplify the signal received from the source before forwarding it to the destination. 
 
 This simulation models the transmission over a fading channel, calculates the SNR at the destination, and computes the BER using different relaying strategies. The mathematical formulation below details each step of the simulation process.
