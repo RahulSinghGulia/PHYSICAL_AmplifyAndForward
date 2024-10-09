@@ -130,99 +130,10 @@ Spectral efficiency is measured in bits per second per Hertz (bps/Hz):
 \eta = \log_2(M)
 \]
 
-## Simulation Code
+## How to Run the Simulation
+To run the simulation, simply execute the Python script. The simulation parameters (e.g., transmission power, modulation order, number of relays) can be modified within the code to experiment with different configurations. The results will include the average Bit Error Rate (BER) after the transmission of a specified number of symbols.
 
-Below is the Python code implementing the Amplify-and-Forward relaying scheme. It simulates the transmission process, relay selection, signal amplification, and calculates the BER, SNR, and spectral efficiency.
-
-```python
-import numpy as np
-
-# Simulation parameters
-M = 4  # QPSK modulation
-alpha = 3  # Path loss exponent
-sigma_shadow = 8  # Shadowing std dev
-P_db = 20  # Transmission power in dB
-P_trans = 10**(P_db/10)  # Convert dB to linear scale
-R = 2  # Number of relays
-S = 10000  # Number of symbols
-B = 100  # Batch size for processing
-
-def generate_channel_coefficients(batch_size, num_relays):
-    """Generates Rayleigh fading channel coefficients."""
-    h_sr = np.random.normal(0, 1, (batch_size, num_relays)) + 1j * np.random.normal(0, 1, (batch_size, num_relays))
-    h_rd = np.random.normal(0, 1, (batch_size, num_relays)) + 1j * np.random.normal(0, 1, (batch_size, num_relays))
-    return h_sr, h_rd
-
-def calculate_path_loss_and_shadowing(batch_size, num_relays):
-    """Calculates path loss and shadowing for the source-relay and relay-destination links."""
-    path_loss_sr = 10 * alpha * np.log10(np.random.uniform(0.5, 2, (batch_size, num_relays)))
-    shadowing_sr = np.random.normal(0, sigma_shadow, (batch_size, num_relays))
-    path_loss_rd = 10 * alpha * np.log10(np.random.uniform(0.5, 2, (batch_size, num_relays)))
-    shadowing_rd = np.random.normal(0, sigma_shadow, (batch_size, num_relays))
-    return path_loss_sr, shadowing_sr, path_loss_rd, shadowing_rd
-
-def modulation(num_symbols, M):
-    """Generates and modulates symbols using QPSK."""
-    k = np.random.randint(0, M, num_symbols)
-    s = np.exp(1j * (2 * np.pi * k / M))
-    return s, k
-
-def amplify_signal(y_sr_best, P_trans):
-    """Amplifies the signal at the relay."""
-    return y_sr_best * np.sqrt(P_trans / (np.abs(y_sr_best)**2 + 1))
-
-def relay_selection(h_sr):
-    """Selects the best relay based on channel gain."""
-    return np.argmax(np.abs(h_sr)**2, axis=1)
-
-def maximal_ratio_combining(y_sr_best, y_rd):
-    """Combines signals received from the source and relay."""
-    return y_sr_best + y_rd
-
-def calculate_snr(y_combined):
-    """Calculates the SNR of the combined signal."""
-    return np.abs(y_combined)**2 / (1 + np.var(y_combined))
-
-def demodulate_and_calculate_ber(s, y_combined, M):
-    """Demodulates the combined signal and calculates the BER."""
-    theta = np.angle(y_combined)
-    k_hat = np.round(theta / (2 * np.pi / M)) % M
-    ber = np.mean(s != k_hat)
-    return ber
-
-# Main simulation loop
-ber_accumulator = []
-for _ in range(S // B):
-    # Channel coefficients and path loss
-    h_sr, h_rd = generate_channel_coefficients(B, R)
-    path_loss_sr, shadowing_sr, path_loss_rd, shadowing_rd = calculate_path_loss_and_shadowing(B, R)
-    
-    # Modulation
-    s, k = modulation(B, M)
-    
-    # Source to relay transmission
-    y_sr = s[:, None] * 10 ** (-path_loss_sr / 10) * 10 ** (shadowing_sr / 10)
-    
-    # Relay selection
-    i_best = relay_selection(h_sr)
-    y_sr_best = np.choose(i_best, y_sr.T)
-    
-    # Amplify signal
-    y_r = amplify_signal(y_sr_best, P_trans)
-    
-    # Relay to destination transmission
-    y_rd = y_r * 10 ** (-path_loss_rd[:, i_best] / 10) * 10 ** (shadowing_rd[:, i_best] / 10)
-    
-    # Maximal ratio combining
-    y_combined = maximal_ratio_combining(y_sr_best, y_rd)
-    
-    # SNR calculation
-    snr_combined = calculate_snr(y_combined)
-    
-    # BER calculation
-    ber = demodulate_and_calculate_ber(k, y_combined, M)
-    ber_accumulator.append(ber)
-
-# Average BER
-average_ber = np.mean(ber_accumulator)
-print(f"Average BER: {average_ber:.4f}")
+## Future Improvements
+Support for different modulation schemes (e.g., 16-QAM, 64-QAM).
+Evaluation of multiple relaying strategies (Decode-and-Forward, Selection Combining).
+Simulation of multi-user or multi-hop scenarios.
