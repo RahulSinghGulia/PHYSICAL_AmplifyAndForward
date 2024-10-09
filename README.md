@@ -28,8 +28,8 @@ $$
 h_{sr} \sim \mathcal{CN}(0, 1), \quad h_{rd} \sim \mathcal{CN}(0, 1)
 $$
 
-- $$ h_{sr} $$: Channel coefficient from Source to Relay.
-- $$ h_{rd} $$: Channel coefficient from Relay to Destination.
+- $$h_{sr} $$: Channel coefficient from Source to Relay.
+- $$h_{rd} $$: Channel coefficient from Relay to Destination.
 
 ### 3. Path Loss and Shadowing
 
