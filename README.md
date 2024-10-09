@@ -40,8 +40,8 @@ L = 10 \cdot \alpha \cdot \log_{10}(r)
 $$
 
 Where:
-- $$ \alpha $$: Path loss exponent.
-- $$ r $$: Distance between transmitter and receiver.
+- $$\alpha $$: Path loss exponent.
+- $$r $$: Distance between transmitter and receiver.
 
 **Shadowing** adds an extra random variation to the received signal power, modeled as a Gaussian random variable:
 
@@ -50,7 +50,7 @@ S \sim \mathcal{N}(0, \sigma_{\text{shadow}}^2)
 $$
 
 Where:
-- $$ \sigma_{\text{shadow}} $$: Standard deviation of the shadowing effect (dB).
+- $$\sigma_{\text{shadow}} $$: Standard deviation of the shadowing effect (dB).
 
 ### 4. Modulation
 
@@ -60,8 +60,8 @@ $$
 s_k = e^{j \frac{2\pi k}{M}}, \quad k \in \{0, 1, \dots, M-1\}
 $$
 
-- $$ s_k $$: Modulated symbol.
-- $$ M $$: Modulation order (e.g., 4 for QPSK).
+- $$s_k $$: Modulated symbol.
+- $$M $$: Modulation order (e.g., 4 for QPSK).
 
 ### 5. Source to Relay Transmission
 
