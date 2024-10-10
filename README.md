@@ -152,8 +152,6 @@ Summary:
 SNR does not increase smoothly, showing peaks and valleys across the transmission power range, which suggests there may be some optimization or modeling issues affecting the overall signal quality at various power levels.
 
 [Plot](https://github.com/RahulSinghGulia/PHYSICAL_AmplifyAndForward/blob/main/Plots.jpg)
-![image]([https://github.com/user-attachments/assets/485cf0b5-e52e-4110-83ff-6b49a78ee407](https://github.com/RahulSinghGulia/PHYSICAL_AmplifyAndForward/blob/main/Plots.jpg)) 
-
 
 ## Future Improvements
 Support for different modulation schemes (e.g., 16-QAM, 64-QAM).
