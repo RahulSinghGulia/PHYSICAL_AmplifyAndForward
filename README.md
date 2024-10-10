@@ -151,7 +151,7 @@ Summary:
  • Spectral efficiency is constant, as expected for a fixed modulation scheme.
 SNR does not increase smoothly, showing peaks and valleys across the transmission power range, which suggests there may be some optimization or modeling issues affecting the overall signal quality at various power levels.
 
-[Plot](https://github.com/RahulSinghGulia/PHYSICAL_AmplifyAndForward/blob/main/Plots.jpg)
+![Plot](https://github.com/RahulSinghGulia/PHYSICAL_AmplifyAndForward/blob/main/Plots.jpg)
 
 ## Future Improvements
 Support for different modulation schemes (e.g., 16-QAM, 64-QAM).
