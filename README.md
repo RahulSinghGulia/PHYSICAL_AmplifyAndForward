@@ -130,17 +130,25 @@ To run the simulation, simply execute the Python script. The simulation paramete
 
 ## Understanding the Plots
 The plot shows three graphs:
-	1. BER (Bit Error Rate) vs Transmission Power (Top Graph, Red)
+	
+ 1. BER (Bit Error Rate) vs Transmission Power (Top Graph, Red)
 		○ The BER initially increases and reaches a peak at around 2.5 dB, then starts to decrease with increasing transmission power. It generally follows a downward trend after 5 dB, indicating that higher transmission power reduces the BER, which is expected.
 		○ The fluctuations in the middle (around 12.5 dB) may suggest some variations in noise or relay performance that could be worth investigating further.
-	2. Spectral Efficiency vs Transmission Power (Middle Graph, Green)
+	
+ 2. Spectral Efficiency vs Transmission Power (Middle Graph, Green)
 		○ The spectral efficiency remains constant at around 2 bits/s/Hz, which is consistent with the modulation scheme (QPSK) used in the simulation. Since the modulation order is fixed, it is expected that spectral efficiency remains unchanged despite varying transmission power.
-	3. SNR vs Transmission Power (Bottom Graph, Blue)
+	
+ 3. SNR vs Transmission Power (Bottom Graph, Blue)
 		○ The SNR fluctuates significantly with transmission power. Instead of following a monotonic increase, the SNR peaks at around 2.5 dB and 10 dB, with dips in between. This suggests that either the channel model or the relay amplification process is causing irregularities in signal quality.
+
 Summary:
-	• The BER generally decreases with increasing transmission power, which aligns with expected behavior in communication systems, though the fluctuations indicate some irregularities in the relay or noise handling.
-	• Spectral efficiency is constant, as expected for a fixed modulation scheme.
-SNR does not increase smoothly, showing peaks and valleys across the transmission power range, which suggests there may be some optimization or modeling issues affecting the overall signal quality at various power levels.![image](https://github.com/user-attachments/assets/485cf0b5-e52e-4110-83ff-6b49a78ee407)
+	
+ • The BER generally decreases with increasing transmission power, which aligns with expected behavior in communication systems, though the fluctuations indicate some irregularities in the relay or noise handling.
+	
+ • Spectral efficiency is constant, as expected for a fixed modulation scheme.
+SNR does not increase smoothly, showing peaks and valleys across the transmission power range, which suggests there may be some optimization or modeling issues affecting the overall signal quality at various power levels.
+
+![image](https://github.com/user-attachments/assets/485cf0b5-e52e-4110-83ff-6b49a78ee407)
 
 
 ## Future Improvements
